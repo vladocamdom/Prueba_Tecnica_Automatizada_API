@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "7491ca87-b88e-4edb-843b-caeecc25bbee",
+		"name": "TestAutoApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test 1 Ping",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"date\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"ok\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://echo-serv.tbxnet.com/v1/system/ping",
+					"protocol": "https",
+					"host": [
+						"echo-serv",
+						"tbxnet",
+						"com"
+					],
+					"path": [
+						"v1",
+						"system",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test 2 Echo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"text\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"test\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://echo-serv.tbxnet.com/v1/echo?text=test",
+					"protocol": "http",
+					"host": [
+						"echo-serv",
+						"tbxnet",
+						"com"
+					],
+					"path": [
+						"v1",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
